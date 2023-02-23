@@ -1,0 +1,25 @@
+{% extends 'app.twig' %}
+
+{% block content %}
+    <h1>Results: </h1>
+
+    <p>You matched with {{ matchedCompanies|length }} companies!</p>
+
+    <div class="matches">
+        {% for company in matchedCompanies %}
+            <article>
+                <header>{{ loop.index}}. {{ company.name }}</header>
+                <body>
+                    <p>{{ company.description }}</p>
+                    <details>
+                        <div>
+                            <p><strong>Email:</strong> {{ company.email }}</p>
+                            <p><strong>Phone:</strong> {{ company.phone }}</p>
+                            <p><strong>Website:</strong> {{ company.website }}</p>
+                        </div>
+                    </details>
+                </body>
+            </article>
+        {% endfor %}
+    </div>
+{% endblock %}
